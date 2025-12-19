@@ -43,6 +43,11 @@ ram.runtime = "200M"
     [install.domain]
     type = "domain"
 
+    [install.turn_domain]
+    type = "domain"
+    ask.en = "Select another domain for the Turn server (it will be created for you)"
+    ask.fr = "Sélectionnez un autre domaine pour le serveur Turn (qui sera créé pour vous)"
+
     [install.init_main_permission]
     type = "group"
     default = "visitors"
@@ -86,6 +91,11 @@ ram.runtime = "200M"
     livekit.default = 7880 # Handled by nginx with SSL termination, on port 443
     tcp.default = 7881
     tcp.exposed = "TCP"
+
+    turn.default = 5349
+
+    turn_udp.default = 3478
+    turn_udp.exposed = "UDP"
 
     [resources.apt]
     packages = "redis, python3, python3-venv, python3-setuptools, python3-pip, postgresql, rdfind"

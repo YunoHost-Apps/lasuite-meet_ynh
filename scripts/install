@@ -57,27 +57,27 @@ ynh_exec_as_app mkdir -p "$install_dir/_build/frontend"
 ynh_exec_as_app mkdir -p "$install_dir/_build/data/static"
 
 pushd "$install_dir/_build/venv"
-  ynh_exec_as_app python -m venv .
-  ynh_hide_warnings ynh_exec_as_app ./bin/pip install "$install_dir/src/backend"
+    ynh_exec_as_app python -m venv .
+    ynh_hide_warnings ynh_exec_as_app ./bin/pip3 freeze > requirements.txt
+    ynh_hide_warnings ynh_exec_as_app ./bin/pip install "$install_dir/src/backend"
 popd
 
 pushd "$install_dir/src/backend"
-  # Collect the static resources
-  ynh_exec_as_app DJANGO_DATA_DIR="$install_dir/_build/data/static" DJANGO_CONFIGURATION=Build DJANGO_JWT_PRIVATE_SIGNING_KEY=Dummy \
-    STATIC_ROOT="$install_dir/src/backend" \
-    "$install_dir/_build/venv/bin/python" manage.py collectstatic --noinput
-  rdfind -makesymlinks true -followsymlinks true -makeresultsfile false "$install_dir/_build/data/static"
-  # Setup the database
-  ynh_hide_warnings ynh_exec_as_app \
-    DJANGO_CONFIGURATION=Production \
-    DB_NAME=$db_name DB_USER=$db_name DB_PASSWORD=$db_pwd \
-    "$install_dir/_build/venv/bin/python" manage.py migrate
-
+    # Collect the static resources
+    ynh_exec_as_app DJANGO_DATA_DIR="$install_dir/_build/data/static" DJANGO_CONFIGURATION=Build DJANGO_JWT_PRIVATE_SIGNING_KEY=Dummy \
+        STATIC_ROOT="$install_dir/src/backend" \
+        "$install_dir/_build/venv/bin/python" manage.py collectstatic --noinput
+    rdfind -makesymlinks true -followsymlinks true -makeresultsfile false "$install_dir/_build/data/static"
+    # Setup the database
+    ynh_hide_warnings ynh_exec_as_app \
+        DJANGO_CONFIGURATION=Production \
+        DB_NAME=$db_name DB_USER=$db_name DB_PASSWORD=$db_pwd \
+        "$install_dir/_build/venv/bin/python" manage.py migrate
 popd
 
 pushd "$install_dir/src/frontend"
-  ynh_hide_warnings ynh_exec_as_app npm ci
-  ynh_hide_warnings ynh_exec_as_app NODE_ENV=production VITE_API_BASE_URL="https://${domain}" npm run build -- --outDir="$install_dir/_build/frontend" --emptyOutDir
+    ynh_hide_warnings ynh_exec_as_app npm ci
+    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production VITE_API_BASE_URL="https://${domain}" npm run build -- --outDir="$install_dir/_build/frontend" --emptyOutDir
 popd
 
 
@@ -105,6 +105,7 @@ chown "$app:$app" "$install_dir/meet-conf.py"
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
+add_nginx_turn_config
 ynh_config_add_nginx
 
 # Create a dedicated systemd config
