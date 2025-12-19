@@ -84,6 +84,10 @@ ram.runtime = "200M"
     [resources.permissions]
     main.url = "/"
 
+    turn.url = "__TURN_DOMAIN__/"
+    turn.show_tile = false
+    turn.allowed = "visitors"
+
     [resources.ports]
     backend.default = 8071
     # Ports for livekit
