@@ -3,7 +3,6 @@
 #=================================================
 # COMMON VARIABLES AND CUSTOM HELPERS
 #=================================================
-nodejs_version=22
 
 turn_nginx_conf_path="/etc/nginx/conf.d/$turn_domain.d/$app.conf"
 

@@ -1,5 +1,5 @@
 [Unit]
-Description=Visio: Simple and Secure Video Conferencing
+Description=Meet: Simple and Secure Video Conferencing
 After=network.target
 
 [Service]
