@@ -4,40 +4,40 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/meet.png" width="32px" alt="Logo of Meet">
-  Meet, packaged for YunoHost
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/lasuite-meet.png" width="32px" alt="Logo of La Suite - Meet">
+  La Suite - Meet, packaged for YunoHost
 </h1>
 
 Simple and Secure Video Conferencing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://visio.numerique.gouv.fr/)
 [![App Demo](https://img.shields.io/badge/App_Demo-blue?style=for-the-badge)](https://visio.numerique.gouv.fr/)
-[![Version: 1.0.1~ynh1](https://img.shields.io/badge/Version-1.0.1~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/meet/)
+[![Version: 1.0.1~ynh1](https://img.shields.io/badge/Version-1.0.1~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/lasuite-meet/)
 
 <div align="center">
-<a href="https://apps.yunohost.org/app/meet"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
-<a href="https://github.com/YunoHost-Apps/meet_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
+<a href="https://apps.yunohost.org/app/lasuite-meet"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
+<a href="https://github.com/YunoHost-Apps/lasuite-meet_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
 
 ## Screenshots
-![Screenshot of Meet](./doc/screenshots/app-visio.png)
+![Screenshot of La Suite - Meet](./doc/screenshots/app-visio.png)
 
 ## 📦 Developer info
 
-[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/meet)](https://ci-apps.yunohost.org/ci/apps/meet/)
+[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/lasuite-meet)](https://ci-apps.yunohost.org/ci/apps/lasuite-meet/)
 
-🛠️ Upstream Meet repository: <https://github.com/suitenumerique/meet>
+🛠️ Upstream La Suite - Meet repository: <https://github.com/suitenumerique/meet>
 
-Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/meet_ynh/tree/testing).
+Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/lasuite-meet_ynh/tree/testing).
 
 The `testing` branch can be tested using:
 ```
 # fresh install:
-sudo yunohost app install https://github.com/YunoHost-Apps/meet_ynh/tree/testing
+sudo yunohost app install https://github.com/YunoHost-Apps/lasuite-meet_ynh/tree/testing
 
 # upgrade an existing install:
-sudo yunohost app upgrade meet -u https://github.com/YunoHost-Apps/meet_ynh/tree/testing
+sudo yunohost app upgrade lasuite-meet -u https://github.com/YunoHost-Apps/lasuite-meet_ynh/tree/testing
 ```
 
 ### 📚 App packaging documentation
