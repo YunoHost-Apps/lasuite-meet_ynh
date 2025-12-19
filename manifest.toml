@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "meet"
 name = "Meet"
-description.en = "Simple and Secure Video Conferencing. Powered by LiveKit."
-description.fr = "Solution simple et sécurisée de visioconférence. Propulsée par Livekit."
+description.en = "Simple and Secure Video Conferencing"
+description.fr = "Solution simple et sécurisée de visioconférence"
 
 version = "1.0.1~ynh1"
 
@@ -18,13 +18,12 @@ demo = "https://visio.numerique.gouv.fr/"
 code = "https://github.com/suitenumerique/meet"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = ["amd64", "arm64", "armhf"]
 multi_instance = false
 
 ldap = false
-
 sso = true
 
 disk = "1.5G"
@@ -102,3 +101,6 @@ ram.runtime = "200M"
 
     [resources.database]
     type = "postgresql"
+
+    [resources.nodejs]
+    version = "22"

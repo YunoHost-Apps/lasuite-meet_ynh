@@ -34,14 +34,6 @@ ynh_script_progression "Configuring dex..."
 setup_dex
 
 #=================================================
-# INSTALL NODEJS
-#=================================================
-
-ynh_script_progression "Installing dependencies..."
-
-ynh_nodejs_install
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
@@ -76,7 +68,6 @@ pushd "$install_dir/src/frontend"
     ynh_hide_warnings ynh_exec_as_app npm ci
     ynh_hide_warnings ynh_exec_as_app NODE_ENV=production VITE_API_BASE_URL="https://${domain}" npm run build -- --outDir="$install_dir/_build/frontend" --emptyOutDir
 popd
-
 
 chown -R "$app:www-data" "$install_dir"
 
