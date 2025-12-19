@@ -53,12 +53,6 @@ ynh_exec_as_app mkdir -p "$install_dir/_build/venv"
 ynh_exec_as_app mkdir -p "$install_dir/_build/frontend"
 ynh_exec_as_app mkdir -p "$install_dir/_build/data/static"
 
-# Mail builder
-pushd "$install_dir/src/mail"
-    ynh_hide_warnings ynh_exec_as_app yarn install --frozen-lockfile
-    ynh_hide_warnings ynh_exec_as_app NODE_ENV=production yarn build
-popd
-
 pushd "$install_dir/_build/venv"
     ynh_exec_as_app python -m venv .
     ynh_hide_warnings ynh_exec_as_app ./bin/pip3 freeze > requirements.txt
