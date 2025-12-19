@@ -102,7 +102,7 @@ ynh_config_add --template="livekit.yaml" --destination="$install_dir/livekit/liv
 chmod 400 "$install_dir/livekit/livekit.yaml"
 chown "$app:$app" "$install_dir/livekit/livekit.yaml"
 
-ynh_config_add --template="meet.py" --destination="$install_dir/meet-conf.py"
+ynh_config_add --template="meet-conf.py" --destination="$install_dir/meet-conf.py"
 chmod 400 "$install_dir/meet-conf.py"
 chown "$app:$app" "$install_dir/meet-conf.py"
 
