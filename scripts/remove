@@ -13,11 +13,9 @@ source /usr/share/yunohost/helpers
 ynh_script_progression "Removing system configurations related to $app..."
 
 redis_db=$(ynh_app_setting_get --key=redis_db)
-celery_redis_db=$(ynh_app_setting_get --key=celery_redis_db)
 dex_app=$(ynh_app_setting_get --key=dex_app)
 
 ynh_redis_remove_db "$redis_db"
-ynh_redis_remove_db "$celery_redis_db"
 
 ynh_config_remove_logrotate
 
