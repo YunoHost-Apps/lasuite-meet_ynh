@@ -31,6 +31,8 @@ ram.build = "1G"
 ram.runtime = "200M"
 
 [install]
+
+    # FIXME: Once removed, also remove the Prerequisites section of the description
     [install.dex]
     type = "app"
     filter = "match(id, '^(dex)(__[0-9+])?$')"

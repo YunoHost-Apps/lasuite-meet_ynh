@@ -16,3 +16,8 @@ Grâce à [LiveKit](https://livekit.io/), Meet offre des performances similaire 
  - optimisations de bout en bout
  - abonnement sélectif
  - codecs SVC (VP9, AV1)
+
+### Pré-requis
+
+Pour fonctionner, vous devez installer Dex.
+Cela est nécessaire pour que l'application puisse vous authentifier sur Yunohost.
