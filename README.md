@@ -8,7 +8,7 @@ It shall NOT be edited by hand.
   Meet, packaged for YunoHost
 </h1>
 
-Simple and Secure Video Conferencing. Powered by LiveKit.
+Simple and Secure Video Conferencing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://visio.numerique.gouv.fr/)
 [![App Demo](https://img.shields.io/badge/App_Demo-blue?style=for-the-badge)](https://visio.numerique.gouv.fr/)
