@@ -21,6 +21,7 @@ ynh_backup "$install_dir"
 
 # Backup the NGINX configuration
 ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
+ynh_backup "/etc/nginx/conf.d/$turn_domain.d/$app.conf"
 
 # Backup the systemd service unit
 ynh_backup "/etc/systemd/system/$app.service"

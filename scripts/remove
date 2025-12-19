@@ -30,6 +30,8 @@ if ynh_hide_warnings yunohost service status "${app-livekit}" >/dev/null; then
 fi
 ynh_config_remove_systemd "${app}-livekit"
 
+ynh_safe_rm "${turn_nginx_conf_path}" \
+    && ynh_systemctl --service=nginx --action=reload
 ynh_config_remove_nginx
 
 ynh_script_progression "Removing $dex_app"

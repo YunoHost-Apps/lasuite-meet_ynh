@@ -1,14 +1,21 @@
 # Documentation: https://docs.livekit.io/home/self-hosting/deployment/#configuration
 keys:
-  meet: __LIVEKIT_SECRET_KEY__
+    meet: __LIVEKIT_SECRET_KEY__
 log_level: info
 port: __PORT_LIVEKIT__
 redis:
-  address: localhost:6379
-  db: __REDIS_DB__
+    address: localhost:6379
+    db: __REDIS_DB__
 rtc:
-  port_range_start: 49152
-  port_range_end: 65535
-  tcp_port: __PORT_TCP__
-  turn_servers: null
-  use_external_ip: true
+    port_range_start: 49152
+    port_range_end: 65535
+    tcp_port: __PORT_TCP__
+    turn_servers: null
+    use_external_ip: true
+
+turn:
+    enabled: true
+    domain: __TURN_DOMAIN__
+    tls_port: __PORT_TURN__
+    udp_port: __PORT_TURN_UDP__
+    external_tls: true
