@@ -2,7 +2,7 @@
 
 # Gunicorn-django settings
 bind = ["127.0.0.1:__PORT_BACKEND__"]
-name = "meet"
+name = "__APP__"
 python_path = "__INSTALL_DIR__/src/backend"
 
 # Run

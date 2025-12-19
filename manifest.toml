@@ -2,8 +2,8 @@
 
 packaging_format = 2
 
-id = "meet"
-name = "Meet"
+id = "lasuite-meet"
+name = "La Suite - Meet"
 description.en = "Simple and Secure Video Conferencing"
 description.fr = "Solution simple et sécurisée de visioconférence"
 

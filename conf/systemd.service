@@ -1,5 +1,5 @@
 [Unit]
-Description=Meet: Simple and Secure Video Conferencing
+Description=La Suite Meet: Simple and Secure Video Conferencing
 After=network.target
 
 [Service]
