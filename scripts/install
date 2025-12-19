@@ -103,7 +103,7 @@ ynh_config_add_systemd
 ynh_config_add_systemd --service="${app}-livekit" --template="systemd-livekit.service"
 
 yunohost service add "$app" --description="Simple and Secure Video Conferencing" --log="/var/log/$app/$app.log"
-yunohost service add "$app-livekit" --description="Livekit for $app" --log="/var/log/$app/$app-livekit.log" --needs_exposed_ports "$port_tcp" "$port_livekit"
+yunohost service add "$app-livekit" --description="Livekit for $app" --log="/var/log/$app/$app-livekit.log" --needs_exposed_ports "$port_tcp"
 
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate

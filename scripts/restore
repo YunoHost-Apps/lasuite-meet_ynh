@@ -64,7 +64,7 @@ systemctl enable "$app.service" --quiet
 systemctl enable "$app-livekit.service" --quiet
 
 yunohost service add "$app" --description="Simple and Secure Video Conferencing" --log="/var/log/$app/$app.log"
-yunohost service add "$app-livekit" --description="Livekit for $app" --log="/var/log/$app/$app-livekit.log" --needs_exposed_ports "$port_tcp" "$port_livekit"
+yunohost service add "$app-livekit" --description="Livekit for $app" --log="/var/log/$app/$app-livekit.log" --needs_exposed_ports "$port_tcp"
 
 ynh_restore "/etc/logrotate.d/$app"
 
