@@ -16,4 +16,4 @@ test_format = 1.0
     # -------------------------------
 
     args.dex = "dex"
-    test_upgrade_from.792fc82f.name = "Upgrade from 1.0.1~ynh1"
+    test_upgrade_from.21386a47.name = "Upgrade from 1.0.1~ynh1"
