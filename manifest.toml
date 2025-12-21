@@ -7,7 +7,7 @@ name = "La Suite - Meet"
 description.en = "Simple and Secure Video Conferencing"
 description.fr = "Solution simple et sécurisée de visioconférence"
 
-version = "1.0.1~ynh2"
+version = "1.0.1~ynh3"
 
 maintainers = ["fflorent", "rouja"]
 
