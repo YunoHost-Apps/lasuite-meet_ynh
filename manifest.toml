@@ -77,6 +77,7 @@ ram.runtime = "200M"
     armhf.sha256 = "e1b600e32197bc691f534e93d9a93f25a4ecdd1c7d2f05999cacfd5c4ce52c71"
     in_subdir=false
     autoupdate.strategy = "latest_github_release"
+    autoupdate.upstream = "https://github.com/livekit/livekit"
 
     [resources.system_user]
 
