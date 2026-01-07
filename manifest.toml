@@ -78,6 +78,9 @@ ram.runtime = "200M"
     in_subdir=false
     autoupdate.strategy = "latest_github_release"
     autoupdate.upstream = "https://github.com/livekit/livekit"
+    autoupdate.asset.amd64 = ".*amd64.tar.gz"
+    autoupdate.asset.arm64 = ".*arm64.tar.gz"
+    autoupdate.asset.armhf = ".*armv7.tar.gz"
 
     [resources.system_user]
 
