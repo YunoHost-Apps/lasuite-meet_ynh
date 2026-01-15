@@ -12,7 +12,7 @@ Simple and Secure Video Conferencing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://visio.numerique.gouv.fr/)
 [![App Demo](https://img.shields.io/badge/App_Demo-blue?style=for-the-badge)](https://visio.numerique.gouv.fr/)
-[![Version: 1.3.0~ynh1](https://img.shields.io/badge/Version-1.3.0~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/lasuite-meet/)
+[![Version: 1.3.0~ynh2](https://img.shields.io/badge/Version-1.3.0~ynh2-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/lasuite-meet/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/lasuite-meet"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
