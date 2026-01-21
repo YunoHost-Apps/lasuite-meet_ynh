@@ -93,6 +93,12 @@ ram.runtime = "200M"
     turn.show_tile = false
     turn.allowed = "visitors"
 
+    livekit.url = "/livekit"
+    livekit.show_tile = false
+    livekit.allowed = "visitors"
+    livekit.auth_header = false
+    livekit.protected = true
+
     [resources.ports]
     backend.default = 8071
     # Ports for livekit
