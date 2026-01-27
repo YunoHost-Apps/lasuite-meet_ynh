@@ -35,7 +35,6 @@ ynh_psql_db_shell < ./db.sql
 #=================================================
 # RESTORE REDIS AND REGENERATE CONFIG
 #=================================================
-
 ynh_script_progression --message="Restore redis and regenerate config..."
 
 # Configure redis
