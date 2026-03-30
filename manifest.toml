@@ -69,12 +69,12 @@ ram.runtime = "200M"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.sources.livekit]
-    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.10.0/livekit_1.10.0_linux_amd64.tar.gz"
-    amd64.sha256 = "49182bac7f1e60912278aa834c3b48516a844178e8ed1d330f29ef0a9980f386"
-    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.10.0/livekit_1.10.0_linux_arm64.tar.gz"
-    arm64.sha256 = "36a1cfdd35d6219e34f42931254760368406e53f202e4305ff9567261f5dfa90"
-    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.10.0/livekit_1.10.0_linux_armv7.tar.gz"
-    armhf.sha256 = "05148cc936ce81988c9a8117421f88217ad6eb7f521f0614e56a55abacb39b75"
+    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.10.1/livekit_1.10.1_linux_amd64.tar.gz"
+    amd64.sha256 = "e0305fb755667cbbcc352c3be12f8eff8da3a8a843b4fc711b5151e284f545f9"
+    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.10.1/livekit_1.10.1_linux_arm64.tar.gz"
+    arm64.sha256 = "4e6c9406317e09564b5d7a47b1f3edd71a473f45320e9eb0127993eaf85b8d96"
+    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.10.1/livekit_1.10.1_linux_armv7.tar.gz"
+    armhf.sha256 = "1ae5dddfcc85c30876f3925e5e440106697c9aaaa06ae2a8453b3d483ada46ee"
     in_subdir=false
     autoupdate.strategy = "latest_github_release"
     autoupdate.upstream = "https://github.com/livekit/livekit"
