@@ -7,7 +7,7 @@ name = "La Suite - Meet"
 description.en = "Simple and Secure Video Conferencing"
 description.fr = "Solution simple et sécurisée de visioconférence"
 
-version = "1.15.0~ynh1"
+version = "1.16.0~ynh1"
 
 maintainers = ["fflorent", "rouja"]
 
@@ -64,8 +64,8 @@ ram.runtime = "200M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/suitenumerique/meet/archive/refs/tags/v1.15.0.tar.gz"
-    sha256 = "e5a0f118b989e840edc100c187647a24e6c33b85d9498f1c9e653873df8296bc"
+    url = "https://github.com/suitenumerique/meet/archive/refs/tags/v1.16.0.tar.gz"
+    sha256 = "0b9aad0641f34ef007c71515def760ff68ec9a741a0690fa5f2d6ebe431f8e1a"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.sources.livekit]
