@@ -7,7 +7,7 @@ name = "La Suite - Meet"
 description.en = "Simple and Secure Video Conferencing"
 description.fr = "Solution simple et sécurisée de visioconférence"
 
-version = "1.21.0~ynh1"
+version = "1.21.0~ynh2"
 
 maintainers = ["fflorent", "rouja"]
 
@@ -69,12 +69,12 @@ ram.runtime = "200M"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.sources.livekit]
-    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.13.1/livekit_1.13.1_linux_amd64.tar.gz"
-    amd64.sha256 = "e9f70e2e44f8fbe1c5ad109087d44964d2afebfccfe0e8282a92215cf332e028"
-    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.13.1/livekit_1.13.1_linux_arm64.tar.gz"
-    arm64.sha256 = "59245ecffe27d82435d9389e51e9c54e978254eb2290c53d46a81543754d6c59"
-    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.13.1/livekit_1.13.1_linux_armv7.tar.gz"
-    armhf.sha256 = "5a39af6260e0a39c62e57750f260b364f39099f3912291e97eac2f3d09725d8a"
+    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.13.2/livekit_1.13.2_linux_amd64.tar.gz"
+    amd64.sha256 = "8198b465f84a358caaf2ae322d6fece55991276f3b2f818e4a1241d5f9e13d09"
+    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.13.2/livekit_1.13.2_linux_arm64.tar.gz"
+    arm64.sha256 = "5c20d6cdb85affaa5098ec8a39eb9b5def9391b66d684a42cb96eec2371f200e"
+    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.13.2/livekit_1.13.2_linux_armv7.tar.gz"
+    armhf.sha256 = "d1f7518f04323fc2a4adfc00b77b0e69e18405808cb525c8e5c5baa0b432912a"
     in_subdir=false
     autoupdate.strategy = "latest_github_release"
     autoupdate.upstream = "https://github.com/livekit/livekit"
