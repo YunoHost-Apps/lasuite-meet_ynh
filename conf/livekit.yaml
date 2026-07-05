@@ -11,7 +11,10 @@ rtc:
     port_range_end: 65535
     tcp_port: __PORT_TCP__
     turn_servers: null
-    use_external_ip: true
+    use_external_ip: false
+    # FIXME: probably better switch to coturn?
+    stun_servers:
+      - stun.nextcloud.com:443
 
 turn:
     enabled: true
