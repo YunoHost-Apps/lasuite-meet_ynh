@@ -10,6 +10,8 @@ WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__INSTALL_DIR__/livekit/livekit-server --config __INSTALL_DIR__/livekit/livekit.yaml
 StandardOutput=append:/var/log/__APP__/__APP__-livekit.log
 StandardError=inherit
+Restart=on-failure
+RestartSec=10s
 
 ### Depending on specificities of your service/app, you may need to tweak these
 ### .. but this should be a good baseline
