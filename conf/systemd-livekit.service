@@ -1,6 +1,6 @@
 [Unit]
 Description=Livekit for __APP__
-After=network.target
+After=network.target dnsmasq.service
 
 [Service]
 Type=simple
