@@ -26,6 +26,16 @@ if ynh_app_upgrading_from_version_before_or_equal_to 0.1.23~ynh1; then
     ynh_app_setting_delete --key=celery_redis_db
 fi
 
+# Preserve the LiveKit network settings of existing installations: if the
+# 'livekit_network_mode' setting doesn't exist yet, detect the mode
+# currently applied in livekit.yaml instead of silently resetting it.
+livekit_network_mode="$(ynh_app_setting_get --key=livekit_network_mode)"
+if [ -z "$livekit_network_mode" ]; then
+    livekit_network_mode="$(livekit_detect_network_mode)"
+    ynh_app_setting_set --key=livekit_network_mode --value=$livekit_network_mode
+fi
+livekit_network_mode_to_vars "$livekit_network_mode"
+
 #=================================================
 # CONFIGURE DEX APP FOR OAUTH2 / OIDC
 #=================================================

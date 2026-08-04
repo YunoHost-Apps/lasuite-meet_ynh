@@ -41,6 +41,15 @@ ynh_script_progression --message="Restore redis and regenerate config..."
 redis_db=$(ynh_redis_get_free_db)
 ynh_app_setting_set --key=redis_db --value="$redis_db"
 
+# Restore the LiveKit network mode (fallback to detecting it from the
+# just-restored livekit.yaml for backups predating this setting)
+livekit_network_mode="$(ynh_app_setting_get --key=livekit_network_mode)"
+if [ -z "$livekit_network_mode" ]; then
+    livekit_network_mode="$(livekit_detect_network_mode)"
+fi
+ynh_app_setting_set --key=livekit_network_mode --value=$livekit_network_mode
+livekit_network_mode_to_vars "$livekit_network_mode"
+
 ynh_config_add --template="env" --destination="$install_dir/.env"
 chmod 400 "$install_dir/.env"
 chown "$app:$app" "$install_dir/.env"

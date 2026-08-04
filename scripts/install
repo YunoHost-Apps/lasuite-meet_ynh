@@ -20,6 +20,12 @@ ynh_app_setting_set --key=redis_db --value=$redis_db
 ynh_app_setting_set --key=livekit_secret_key --value=$livekit_secret_key
 ynh_app_setting_set --key=django_secret_key --value=$django_secret_key
 
+# Default LiveKit network mode for new installs: local network only.
+# This matches the behaviour of the app before this setting existed.
+livekit_network_mode="local"
+ynh_app_setting_set --key=livekit_network_mode --value=$livekit_network_mode
+livekit_network_mode_to_vars "$livekit_network_mode"
+
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================

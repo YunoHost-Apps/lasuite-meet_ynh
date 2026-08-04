@@ -6,6 +6,54 @@
 
 turn_nginx_conf_path="/etc/nginx/conf.d/$turn_domain.d/$app.conf"
 
+# Map a friendly LiveKit network mode (local|internet|both) to the
+# underlying LiveKit rtc.use_external_ip / rtc.advertise_internal_ip booleans.
+# Sets the global variables 'use_external_ip' and 'advertise_internal_ip',
+# consumed by the livekit.yaml template.
+livekit_network_mode_to_vars() {
+    case "$1" in
+        local)
+            use_external_ip=false
+            advertise_internal_ip=false
+            ;;
+        internet)
+            use_external_ip=true
+            advertise_internal_ip=false
+            ;;
+        both)
+            use_external_ip=true
+            advertise_internal_ip=true
+            ;;
+        *)
+            ynh_die "Unknown LiveKit network mode: $1"
+            ;;
+    esac
+}
+
+# Detect the LiveKit network mode currently applied in an existing
+# livekit.yaml, so that upgrading from a version before the
+# 'livekit_network_mode' setting existed doesn't silently change the
+# server's behaviour.
+livekit_detect_network_mode() {
+    local livekit_config="$install_dir/livekit/livekit.yaml"
+    local current_use_external_ip="false"
+    local current_advertise_internal_ip="false"
+
+    if [ -e "$livekit_config" ]; then
+        current_use_external_ip="$(ynh_read_var_in_file --file="$livekit_config" --key="use_external_ip")"
+        current_advertise_internal_ip="$(ynh_read_var_in_file --file="$livekit_config" --key="advertise_internal_ip")"
+        [ "$current_use_external_ip" == "YNH_NULL" ] && current_use_external_ip="false"
+        [ "$current_advertise_internal_ip" == "YNH_NULL" ] && current_advertise_internal_ip="false"
+    fi
+
+    if [ "$current_use_external_ip" == "true" ] && [ "$current_advertise_internal_ip" == "true" ]; then
+        echo "both"
+    elif [ "$current_use_external_ip" == "true" ]; then
+        echo "internet"
+    else
+        echo "local"
+    fi
+}
 
 add_nginx_turn_config() {
     local finalnginxconf="${turn_nginx_conf_path}"

@@ -1,0 +1,90 @@
+#!/bin/bash
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+#=================================================
+# RETRIEVE ARGUMENTS
+#=================================================
+
+livekit_config="$install_dir/livekit/livekit.yaml"
+
+#=================================================
+# SPECIFIC GETTERS FOR TOML SHORT KEYS
+#=================================================
+
+get__livekit_network_mode() {
+    # Always derive the mode from the actual file so that manual edits
+    # of livekit.yaml are reflected instead of the last value we set.
+    livekit_detect_network_mode
+}
+
+#=================================================
+# SPECIFIC SETTERS FOR TOML SHORT KEYS
+#=================================================
+
+set__livekit_network_mode() {
+    livekit_network_mode_to_vars "$livekit_network_mode"
+
+    ynh_config_add --template="livekit.yaml" --destination="$livekit_config"
+    chmod 400 "$livekit_config"
+    chown "$app:$app" "$livekit_config"
+
+    ynh_app_setting_set --key=livekit_network_mode --value="$livekit_network_mode"
+}
+
+#=================================================
+# OVERWRITING APPLY STEP TO SAFELY RESTART LIVEKIT
+#=================================================
+
+# We don't declare this panel's "services" in config_panel.toml because the
+# core's automatic reload-or-restart doesn't check whether the service
+# actually came back up. Instead, we restart lasuite-meet-livekit ourselves
+# here and roll back to the previous livekit.yaml if it fails to start.
+ynh_app_config_apply() {
+
+    if [[ "${changed[livekit_network_mode]:-false}" != "true" ]]; then
+        _ynh_app_config_apply
+        return
+    fi
+
+    local previous_mode="${old[livekit_network_mode]}"
+    local livekit_config_backup
+    livekit_config_backup="$(mktemp)"
+    cp -a "$livekit_config" "$livekit_config_backup"
+
+    _ynh_app_config_apply
+
+    ynh_script_progression "Restarting ${app}-livekit to apply the new network mode..."
+    ynh_systemctl --service="${app}-livekit" --action=restart
+
+    local i
+    local livekit_started=false
+    for i in $(seq 1 10); do
+        if systemctl is-active --quiet "${app}-livekit"; then
+            livekit_started=true
+            break
+        fi
+        sleep 1
+    done
+
+    if [[ "$livekit_started" != "true" ]]; then
+        ynh_print_warn "${app}-livekit failed to start with the new network mode, reverting to the previous configuration..."
+        cp -a "$livekit_config_backup" "$livekit_config"
+        ynh_app_setting_set --key=livekit_network_mode --value="$previous_mode"
+        ynh_systemctl --service="${app}-livekit" --action=restart
+        rm -f "$livekit_config_backup"
+        ynh_die "The new LiveKit network mode made ${app}-livekit fail to start. The previous configuration has been restored."
+    fi
+
+    rm -f "$livekit_config_backup"
+}
+
+#=================================================
+ynh_app_config_run "$1"
