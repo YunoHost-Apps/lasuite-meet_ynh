@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC STARTING
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+
+ynh_app_config_apply() {
+    if [ "${changed[livekit_network_mode]}:-false" == "true" ]; then
+        ynh_config_add --template="livekit.yaml.j2" --destination="$install_dir/livekit/livekit.yaml" --jinja
+        chmod 400 "$install_dir/livekit/livekit.yaml"
+        chown "$app:$app" "$install_dir/livekit/livekit.yaml"
+    fi
+
+    _ynh_app_config_apply
+}
+
+ynh_app_config_run $1
