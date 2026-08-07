@@ -25,19 +25,23 @@ services = [ "__APP__-livekit" ] # Restart livekit when applying configuration i
         choices.local = "Local network only"
         choices.internet = "Internet access only"
         choices.both = "Local network and Internet"
+        optional = false
         default = "both"
-        bind = "null"
-        help.en = """\
+        help = """\
 - **Local network only**: for installations only used from a local network or through a VPN. The server isn't exposed to the Internet and no public LiveKit ports are forwarded (livekit config: `use_external_ip: false`, `advertise_internal_ip: false`).
 
 - **Internet access only**: for a server with a public IP address (e.g. a VPS) where participants mainly connect from the Internet, with the required LiveKit ports forwarded. May not work correctly for local participants if the router doesn't support NAT loopback/hairpinning (livekit config: `use_external_ip: true`, `advertise_internal_ip: false`).
 
 - **Local network and Internet**: for a server behind a home/office router with port forwarding, reached both from the local network and from the Internet (mobile data, etc). This is usually the right choice if the router doesn't correctly support NAT loopback (livekit config: `use_external_ip: true`, `advertise_internal_ip: true`).\
 """
-        help.fr = """\
-- **Local network only (Réseau local uniquement)** : pour les installations utilisées uniquement depuis un réseau local ou via un VPN. Le serveur n'est pas exposé sur Internet et aucun port LiveKit public n'est redirigé (configuration livekit : `use_external_ip: false`, `advertise_internal_ip: false`).
-
-- **Internet access only (Accès Internet uniquement)** : pour un serveur avec une adresse IP publique (VPS par exemple) où les participants se connectent principalement depuis Internet, avec les ports LiveKit nécessaires redirigés. Peut ne pas fonctionner correctement pour les participants locaux si le routeur ne supporte pas le NAT loopback/hairpin (configuration livekit : `use_external_ip: true`, `advertise_internal_ip: false`).
-
-- **Local network and Internet (Réseau local et Internet)** : pour un serveur derrière une box/un routeur avec redirection de ports, accessible à la fois depuis le réseau local et depuis Internet (4G, etc). C'est en général le bon choix si le routeur ne supporte pas correctement le NAT loopback (configuration livekit : `use_external_ip: true`, `advertise_internal_ip: true`).\
-"""
+#         FIXME: We should provide translations, but it looks like Yunohost
+#         Does not support localized multi-line strings.
+#
+#
+#         help.fr = """\
+# - **Local network only (Réseau local uniquement)** : pour les installations utilisées uniquement depuis un réseau local ou via un VPN. Le serveur n'est pas exposé sur Internet et aucun port LiveKit public n'est redirigé (configuration livekit : `use_external_ip: false`, `advertise_internal_ip: false`).
+#
+# - **Internet access only (Accès Internet uniquement)** : pour un serveur avec une adresse IP publique (VPS par exemple) où les participants se connectent principalement depuis Internet, avec les ports LiveKit nécessaires redirigés. Peut ne pas fonctionner correctement pour les participants locaux si le routeur ne supporte pas le NAT loopback/hairpin (configuration livekit : `use_external_ip: true`, `advertise_internal_ip: false`).
+#
+# - **Local network and Internet (Réseau local et Internet)** : pour un serveur derrière une box/un routeur avec redirection de ports, accessible à la fois depuis le réseau local et depuis Internet (4G, etc). C'est en général le bon choix si le routeur ne supporte pas correctement le NAT loopback (configuration livekit : `use_external_ip: true`, `advertise_internal_ip: true`).\
+# """
