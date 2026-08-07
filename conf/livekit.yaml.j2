@@ -1,0 +1,25 @@
+# Documentation: https://docs.livekit.io/home/self-hosting/deployment/#configuration
+keys:
+    meet: {{ livekit_secret_key }}
+log_level: info
+port: {{ port_livekit }}
+redis:
+    address: localhost:6379
+    db: {{ redis_db }}
+rtc:
+    port_range_start: 49152
+    port_range_end: 65535
+    tcp_port: {{ port_tcp }}
+    turn_servers: null
+    use_external_ip: {{ 'true' if livekit_network_mode in ['internet', 'both'] else 'false' }}
+    advertise_internal_ip: {{ 'true' if livekit_network_mode == 'both' else 'false' }}
+    # FIXME: probably better switch to coturn?
+    stun_servers:
+      - stun.nextcloud.com:443
+
+turn:
+    enabled: true
+    domain: {{ turn_domain }}
+    tls_port: {{ port_turn }}
+    udp_port: {{ port_turn_udp }}
+    external_tls: true
