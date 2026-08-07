@@ -19,6 +19,7 @@ django_secret_key=$(ynh_string_random -l 32)
 ynh_app_setting_set --key=redis_db --value=$redis_db
 ynh_app_setting_set --key=livekit_secret_key --value=$livekit_secret_key
 ynh_app_setting_set --key=django_secret_key --value=$django_secret_key
+ynh_app_setting_set_default --key=livekit_network_mode --value=both
 
 #=================================================
 # FIND AND OPEN A PORT
