@@ -7,7 +7,7 @@ name = "La Suite - Meet"
 description.en = "Simple and Secure Video Conferencing"
 description.fr = "Solution simple et sécurisée de visioconférence"
 
-version = "1.29.0~ynh2"
+version = "1.32.1~ynh1"
 
 maintainers = ["fflorent", "rouja"]
 
@@ -64,17 +64,17 @@ ram.runtime = "200M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/suitenumerique/meet/archive/refs/tags/v1.29.0.tar.gz"
-    sha256 = "9d208c25e2c6ca55bab5106b26371970a90791c2e8154365356faffe2e447a75"
+    url = "https://github.com/suitenumerique/meet/archive/refs/tags/v1.32.1.tar.gz"
+    sha256 = "60ab03e90dadd0bc61a5bb0c02e0689255677b56704d774372175e0a06161e06"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.sources.livekit]
-    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.13.6/livekit_1.13.6_linux_amd64.tar.gz"
-    amd64.sha256 = "2b61abef2b9ba14b4b8ca38b37de9a37ffc682b9931d5fc03ceca2f0b77d3e33"
-    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.13.6/livekit_1.13.6_linux_arm64.tar.gz"
-    arm64.sha256 = "5c75f09173199f3f8fe0c3c0d5a41171f9b306ffce6843d752c276d11e77d19b"
-    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.13.6/livekit_1.13.6_linux_armv7.tar.gz"
-    armhf.sha256 = "adfbfa8159b1291b99d49a34c4486379de6c0ea91ea2f73d1bbfd7e460a9c604"
+    amd64.url = "https://github.com/livekit/livekit/releases/download/v1.13.7/livekit_1.13.7_linux_amd64.tar.gz"
+    amd64.sha256 = "6634aeeb2fb1366b6723708ae4320b9d5408106a4c63457c5e845ae3979c90e2"
+    arm64.url = "https://github.com/livekit/livekit/releases/download/v1.13.7/livekit_1.13.7_linux_arm64.tar.gz"
+    arm64.sha256 = "5d167fdf52cf43c0c72972f25325364479f41f854bfef651056eab2504da5de9"
+    armhf.url = "https://github.com/livekit/livekit/releases/download/v1.13.7/livekit_1.13.7_linux_armv7.tar.gz"
+    armhf.sha256 = "48c0150f09fd0ab9baa5fa85af87af99f8f364ecc1256731efb5c62636269fd9"
     in_subdir=false
     autoupdate.strategy = "latest_github_release"
     autoupdate.upstream = "https://github.com/livekit/livekit"
