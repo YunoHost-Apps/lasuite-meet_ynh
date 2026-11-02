@@ -15,15 +15,22 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression "Ensuring downward compatibility..."
+
+if ynh_app_upgrading_from_version_before_or_equal_to 0.1.23~ynh1; then
+    ynh_app_setting_delete --key=celery_redis_db
+fi
+
+ynh_app_setting_set_default --key=livekit_network_mode --value=both
+
+#=================================================
 # CONFIGURE FIREWALL
 #=================================================
 if ! yunohost firewall list | grep -q "\- 49152:65535"; then
     ynh_script_progression "Configuring firewall..."
     ynh_hide_warnings yunohost firewall allow UDP -4 49152:65535
-fi
-
-if ynh_app_upgrading_from_version_before_or_equal_to 0.1.23~ynh1; then
-    ynh_app_setting_delete --key=celery_redis_db
 fi
 
 #=================================================
@@ -80,7 +87,7 @@ ynh_config_add --template="env" --destination="$install_dir/.env"
 chmod 400 "$install_dir/.env"
 chown "$app:$app" "$install_dir/.env"
 
-ynh_config_add --template="livekit.yaml" --destination="$install_dir/livekit/livekit.yaml"
+ynh_config_add --template="livekit.yaml.j2" --destination="$install_dir/livekit/livekit.yaml" --jinja
 chmod 400 "$install_dir/livekit/livekit.yaml"
 chown "$app:$app" "$install_dir/livekit/livekit.yaml"
 
