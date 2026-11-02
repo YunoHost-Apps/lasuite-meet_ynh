@@ -1,7 +1,8 @@
 # Documentation: https://docs.livekit.io/home/self-hosting/deployment/#configuration
 keys:
     meet: {{ livekit_secret_key }}
-log_level: info
+logging:
+    level: info
 port: {{ port_livekit }}
 redis:
     address: localhost:6379
